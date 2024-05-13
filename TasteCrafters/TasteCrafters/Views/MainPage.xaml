@@ -1,0 +1,75 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TasteCrafters.ViewModels"
+             x:Class="TasteCrafters.Views.MainPage"
+             Title="Home"
+             BackgroundImageSource="Background2.png">
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <CollectionView Grid.Row="0"
+                        ItemsSource="{Binding Ingredients}"
+                        IsGrouped="True"
+                        BackgroundColor="Transparent"
+                        SelectionMode="None">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" 
+                                 Span="4"
+                                 HorizontalItemSpacing="10" 
+                                 VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="{StaticResource DarkCharcoal}"
+                           Padding="5"
+                           CornerRadius="5">
+                        <Label Text="{Binding Title}"
+                               FontSize="22"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               TextColor="{StaticResource CreamIvory}"
+                               FontAttributes="Bold"
+                               Padding="5"
+                               Margin="10,5,10,0"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="{StaticResource SemiTranslucent}"
+                           Padding="10"
+                           Margin="5"
+                           CornerRadius="10">
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                      Color="{StaticResource Bronze}"
+                                      IsVisible="{OnPlatform UWP=True, Default=True}"/>
+                            <Label Text="{Binding Name}"
+                                   VerticalOptions="Center" 
+                                   FontSize="18"
+                                   TextColor="{StaticResource CreamIvory}"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Grid.Row="1"
+                Text="Submit Selections"
+                Command="{Binding SubmitCommand}"
+                Background="{StaticResource DeepBrown}"
+                TextColor="white"
+                Margin="10"
+                Padding="10"
+                CornerRadius="20"/>
+    </Grid>
+</ContentPage>

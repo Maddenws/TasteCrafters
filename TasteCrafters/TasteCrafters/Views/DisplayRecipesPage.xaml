@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TasteCrafters.Views.DisplayRecipesPage"
+             xmlns:local="clr-namespace:TasteCrafters.ViewModels"
+             x:Name="ThisPage"
+             BackgroundColor="#FFF9F7">
+    <ContentPage.BindingContext>
+        <local:DisplayRecipesViewModel />
+    </ContentPage.BindingContext>
+
+    <CollectionView ItemsSource="{Binding Recipes}" BackgroundColor="Transparent">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame BorderColor="#DDD" Margin="5" Padding="0" CornerRadius="5" HasShadow="True">
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" Grid.RowSpan="2"/>
+                        <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="16" VerticalOptions="Start" Grid.Column="1" TextColor="#333"/>
+                        <Label Text="{Binding Link}" Grid.Column="1" Grid.Row="1" TextColor="Blue" VerticalOptions="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.OpenLinkCommand, Source={x:Reference ThisPage}}"
+                                                      CommandParameter="{Binding Link}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
