@@ -22,6 +22,7 @@ namespace TasteCrafters.ViewModels
 
         public MainPageViewModel()
         {
+            IsLayoutVisible = false;
             _ingredientService = DependencyService.Get<GetIngredientListType>();
             _ingredientService.PopulateCollection();
             _ingredientStringBuilder = DependencyService.Get<IngredientStringBuilder>();
@@ -74,6 +75,16 @@ namespace TasteCrafters.ViewModels
                 }
             }
         }
+        private bool _isLayoutVisible;
+        public bool IsLayoutVisible
+        {
+            get { return _isLayoutVisible; }
+            set
+            { 
+                _isLayoutVisible = value;
+                OnPropertyChanged(nameof(IsLayoutVisible));
+            }
+        }
 
         private async void ExecuteSubmitCommand()
         {
@@ -88,6 +99,7 @@ namespace TasteCrafters.ViewModels
         
         private void ExecuteAddIngredientCommand()
         {
+            IsLayoutVisible = !IsLayoutVisible;
             // Will be used to add a searchbar for adding personal ingredients. Later feature. 
         }
     }
