@@ -13,6 +13,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <CollectionView Grid.Row="0"
                         ItemsSource="{Binding Ingredients}"
@@ -68,8 +70,32 @@
                 Command="{Binding SubmitCommand}"
                 Background="{StaticResource DeepBrown}"
                 TextColor="white"
-                Margin="10"
+                Margin="5"
                 Padding="10"
                 CornerRadius="20"/>
+        <Button Grid.Row="2"
+                Text="Add More Ingredients"
+                Command="{Binding AddIngredientCommand}"
+                TextColor="white"
+                Margin="5"
+                Padding="10"
+                CornerRadius="20"/>
+        <!--<SearchBar Grid.Row="3"
+                   TextColor="black"
+                   Margin="5"
+                   IsVisible="false"
+                   />-->
+        <StackLayout Grid.Row="3" IsVisible="{Binding IsLayoutVisible}" >
+            <Entry
+               Margin="5"
+               x:Name="addedEntries"
+               Placeholder="Type here..."
+                />
+            <Button Margin="5"
+                    Text="Add"
+                    CornerRadius="20"
+                />
+        </StackLayout>
+
     </Grid>
 </ContentPage>
