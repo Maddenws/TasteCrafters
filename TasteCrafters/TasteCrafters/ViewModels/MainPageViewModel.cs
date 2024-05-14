@@ -93,8 +93,11 @@ namespace TasteCrafters.ViewModels
             string queryString = query + _ingredientStringBuilder.GetString();
 
             queryString = Uri.EscapeDataString(queryString);
+            if (SelectedIngredients.Count != 0)
+            {
 
             await Shell.Current.GoToAsync($"//{nameof(DisplayRecipesPage)}?query={queryString}");
+            }
         }
         
         private void ExecuteAddIngredientCommand()
