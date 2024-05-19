@@ -20,9 +20,11 @@ namespace TasteCrafters.ViewModels
         public ICommand SubmitCommand { get; set; }
         public ICommand AddIngredientCommand { get; set; }
 
+        public ICommand ToggleVisibilityLayoutCommand {  get; set; }
+
         public MainPageViewModel()
         {
-            IsLayoutVisible = false;
+             IsLayoutVisible = true;
             _ingredientService = DependencyService.Get<GetIngredientListType>();
             _ingredientService.PopulateCollection();
             _ingredientStringBuilder = DependencyService.Get<IngredientStringBuilder>();
@@ -53,6 +55,8 @@ namespace TasteCrafters.ViewModels
 
             SubmitCommand = new Command(ExecuteSubmitCommand);
             AddIngredientCommand = new Command(ExecuteAddIngredientCommand);
+            ToggleVisibilityLayoutCommand = new Command(ExecuteToggleVisibilityCommand);
+            IsLayoutVisible = false;
         }
 
         private void Ingredient_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -75,12 +79,13 @@ namespace TasteCrafters.ViewModels
                 }
             }
         }
+
         private bool _isLayoutVisible;
         public bool IsLayoutVisible
         {
             get { return _isLayoutVisible; }
             set
-            { 
+            {
                 _isLayoutVisible = value;
                 OnPropertyChanged(nameof(IsLayoutVisible));
             }
@@ -102,8 +107,20 @@ namespace TasteCrafters.ViewModels
         
         private void ExecuteAddIngredientCommand()
         {
-            IsLayoutVisible = !IsLayoutVisible;
+            //IsLayoutVisible = !IsLayoutVisible;
             // Will be used to add a searchbar for adding personal ingredients. Later feature. 
+        }
+
+        private void ExecuteToggleVisibilityCommand()
+        {
+            if (IsLayoutVisible)
+            {
+                IsLayoutVisible = false;
+            }
+            else
+            {
+                IsLayoutVisible = true;
+            }
         }
     }
 }
