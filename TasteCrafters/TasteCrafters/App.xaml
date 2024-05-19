@@ -15,6 +15,7 @@
             <Color x:Key="Bronze">#6b5e4f</Color>
             <Color x:Key="TranslucentBronze">#80B65E4F</Color>
             <Color x:Key="SemiTranslucent">#80000000</Color>
+            <Color x:Key="TranslucentDarkCharcoal">#CC333333</Color>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
