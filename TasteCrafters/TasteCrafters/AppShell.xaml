@@ -16,7 +16,7 @@
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource DarkGreen}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource CreamIvory}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource SemiTranslucent}" />
@@ -46,7 +46,7 @@
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DarkGreen}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -78,17 +78,19 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
+    <Shell.FlyoutBackgroundColor>#333333</Shell.FlyoutBackgroundColor>
+        
     <FlyoutItem Title="MainPage" Icon="icon_about.png">
         <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="DisplayPage" Icon="icon_about.png">
-        <ShellContent Route="DisplayRecipesPage" ContentTemplate="{DataTemplate local:DisplayRecipesPage}" />
+    <FlyoutItem Title="DisplayPage" Icon="icon_about.png" FlyoutItemIsVisible="False">
+        <ShellContent Route="DisplayRecipesPage" ContentTemplate="{DataTemplate local:DisplayRecipesPage}"  />
     </FlyoutItem>
     <FlyoutItem Title="About" Icon="icon_about.png" FlyoutItemIsVisible="False">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
-
-    <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
+    
+        <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
     <!--<MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>-->
 
