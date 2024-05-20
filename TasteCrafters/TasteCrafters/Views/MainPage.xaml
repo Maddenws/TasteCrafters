@@ -179,6 +179,7 @@
             <Entry Grid.Column="0"
                    Margin="5"
                    x:Name="addedEntries"
+                   Text="{Binding UserAddIngredient}"
                    Placeholder="Type here..."/>
 
             <Button Grid.Column="1"
