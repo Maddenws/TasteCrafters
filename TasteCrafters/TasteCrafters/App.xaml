@@ -7,7 +7,7 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Primary">#f8f3e9</Color>
             <Color x:Key="DarkCharcoal">#333333</Color>
             <Color x:Key="CreamIvory">#f8f3e9</Color>
             <Color x:Key="DeepBrown">#4a3427</Color>
@@ -17,13 +17,13 @@
             <Color x:Key="SemiTranslucent">#80000000</Color>
             <Color x:Key="TranslucentDarkCharcoal">#CC333333</Color>
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource CreamIvory}"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DarkGreen}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">
