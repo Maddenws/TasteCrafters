@@ -33,6 +33,11 @@ namespace TasteCrafters.ViewModels
                 AddIngredient(item.Name);
             }
         }
+        
+        public void CreateQueryString(string input)
+        {
+            AddIngredient(input);
+        }
         public string GetString()
         {
             

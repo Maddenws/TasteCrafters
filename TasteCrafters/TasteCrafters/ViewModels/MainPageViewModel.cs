@@ -90,7 +90,19 @@ namespace TasteCrafters.ViewModels
                 OnPropertyChanged(nameof(IsLayoutVisible));
             }
         }
-
+        private string _userAddedIngredient;
+        public string UserAddIngredient
+        {
+            get
+            { 
+                return _userAddedIngredient;
+            }
+            set 
+            {
+                _userAddedIngredient = value;
+                OnPropertyChanged(nameof(_userAddedIngredient));
+            }
+        }
         private async void ExecuteSubmitCommand()
         {
             string query = "Recipes that start with ";
@@ -107,7 +119,7 @@ namespace TasteCrafters.ViewModels
         
         private void ExecuteAddIngredientCommand()
         {
-            //IsLayoutVisible = !IsLayoutVisible;
+            
             // Will be used to add a searchbar for adding personal ingredients. Later feature. 
         }
 
@@ -115,12 +127,19 @@ namespace TasteCrafters.ViewModels
         {
             if (IsLayoutVisible)
             {
+                if (_userAddedIngredient != null)
+                {
+                    _ingredientStringBuilder.CreateQueryString(_userAddedIngredient);
+                }
                 IsLayoutVisible = false;
+
             }
             else
             {
                 IsLayoutVisible = true;
             }
+
+
         }
     }
 }
