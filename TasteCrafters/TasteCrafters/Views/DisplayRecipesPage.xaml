@@ -12,15 +12,17 @@
     <CollectionView ItemsSource="{Binding Recipes}" BackgroundColor="Transparent">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame BorderColor="#DDD" Margin="5" Padding="0" CornerRadius="5" HasShadow="True">
+                <Frame BorderColor="#DDD" Margin="5" Padding="0" CornerRadius="5" HasShadow="True" HeightRequest="135">
                     <Grid Padding="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="75"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="150"/>
                         </Grid.ColumnDefinitions>
 
                         <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" Grid.RowSpan="2"/>
@@ -31,6 +33,15 @@
                                                       CommandParameter="{Binding Link}"/>
                             </Label.GestureRecognizers>
                         </Label>
+                        <Frame Grid.Column="2"
+                               Grid.Row="1"
+                               >
+                            <Button
+                                CornerRadius="20"
+                                Text="Save"
+                                TextColor="blue"
+                                BackgroundColor="{StaticResource CreamIvory}"></Button>
+                        </Frame>
                     </Grid>
                 </Frame>
             </DataTemplate>
