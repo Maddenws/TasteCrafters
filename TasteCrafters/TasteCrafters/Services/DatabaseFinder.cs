@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Xamarin.Essentials;
 
-namespace TasteCrafters.Models
+namespace TasteCrafters.Services
 {
     public class DatabaseFinder
     {

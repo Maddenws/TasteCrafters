@@ -1,5 +1,5 @@
 ﻿using System;
-
+using TasteCrafters.DataAccess;
 using TasteCrafters.Services;
 using TasteCrafters.ViewModels;
 using TasteCrafters.Views;
@@ -20,6 +20,7 @@ namespace TasteCrafters
             DependencyService.RegisterSingleton(new IngredientStringBuilder());
             DependencyService.Register<GetIngredientListType>();
             DependencyService.Register<IngredientStringBuilder>();
+            DependencyService.RegisterSingleton<IDataAccess>(new SQLiteDataAccess(DbPath.GetDatabasePath()));
             //DependencyService.RegisterSingleton(new DataAccessService());
             //DependencyService.RegisterSingleton(new DataAccess());
             //DependencyService.RegisterSingleton<IDatabaseHelper>(new DatabaseHelper());
