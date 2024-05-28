@@ -40,7 +40,12 @@
                                 CornerRadius="20"
                                 Text="Save"
                                 TextColor="blue"
-                                BackgroundColor="{StaticResource CreamIvory}"></Button>
+                                BackgroundColor="{StaticResource CreamIvory}"
+                                Command="{Binding Path=BindingContext.SaveRecipeCommand, Source={x:Reference ThisPage}}"
+                                CommandParameter="{Binding .}"
+                                >
+                                
+                            </Button>
                         </Frame>
                     </Grid>
                 </Frame>
