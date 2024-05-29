@@ -13,6 +13,7 @@ namespace TasteCrafters.ViewModels
     public class MainPageViewModel : BindableObject
     {
         private GetIngredientListType _ingredientService;
+
         private IngredientStringBuilder _ingredientStringBuilder;
         public ObservableCollection<IngredientGroup> Ingredients { get; set; }
         public ObservableCollection<IngredientModel> SelectedIngredients { get; set; }

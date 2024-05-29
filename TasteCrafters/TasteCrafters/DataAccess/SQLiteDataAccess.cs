@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using TasteCrafters.Services;
 
 namespace TasteCrafters.DataAccess
 {
@@ -17,6 +18,7 @@ namespace TasteCrafters.DataAccess
         {
             _connection = new SQLiteConnection(dbPath);
             _connection.CreateTable<SavedRecipeModel>();
+            //DatabaseDropper.DropDatabase("TasteCrafters.db3");
         }
 
         public void AddNewRecipe(SavedRecipeModel recipe)

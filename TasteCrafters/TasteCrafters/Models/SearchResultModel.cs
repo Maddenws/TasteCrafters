@@ -10,6 +10,6 @@ namespace TasteCrafters.Models
         public string Title { get; set; }
         public string Link { get; set; }
 
-        public object ImageUrl { get; internal set; }
+        public string ImageUrl { get; set; }
     }
 }

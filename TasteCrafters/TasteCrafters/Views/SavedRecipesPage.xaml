@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TasteCrafters.ViewModels"
+             x:Class="TasteCrafters.Views.SavedRecipesPage"
+             BackgroundColor="{StaticResource TranslucentDarkCharcoal}"
+             x:Name="ThisPage">
+    <ContentPage.BindingContext>
+        <local:SavedRecipesViewModel/>
+    </ContentPage.BindingContext>
+
+    <CollectionView ItemsSource="{Binding SavedRecipeList}" BackgroundColor="Transparent">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame BorderColor="#DDD" Margin="5" Padding="0" CornerRadius="5" HasShadow="True" HeightRequest="135">
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="75"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" Grid.RowSpan="2"/>
+                        <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="16" VerticalOptions="Start" Grid.Column="1" TextColor="{StaticResource CreamIvory}"/>
+                        <Label Text="{Binding Link}" Grid.Column="1" Grid.Row="1" TextColor="Blue" VerticalOptions="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.OpenLinkCommand, Source={x:Reference ThisPage}}"
+                                                      CommandParameter="{Binding Link}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Frame Grid.Column="2"
+                               Grid.Row="1"
+                               >
+                            <Button
+                                CornerRadius="20"
+                                Text="Delete"
+                                TextColor="blue"
+                                BackgroundColor="{StaticResource CreamIvory}"
+                                Command="{Binding Path=BindingContext.DeleteRecipeCommand, Source={x:Reference ThisPage}}"
+                                CommandParameter="{Binding .}"
+                                >
+
+                            </Button>
+                        </Frame>
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
