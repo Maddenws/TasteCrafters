@@ -9,8 +9,8 @@ namespace TasteCrafters.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            Title = "Repository";
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://github.com/Maddenws"));
         }
 
         public ICommand OpenWebCommand { get; }
