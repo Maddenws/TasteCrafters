@@ -132,6 +132,8 @@
     <AndroidResource Include="Resources\layout\item_layout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\TasteCrafters_LogoCream.png" />
+    <Content Include="TasteCrafters_LogoCream.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
