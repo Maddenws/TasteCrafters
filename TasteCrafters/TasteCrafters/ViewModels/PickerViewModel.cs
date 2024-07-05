@@ -12,6 +12,7 @@ using TasteCrafters.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
+//This partial picker class is not used anymore, Keeping incase of design changes. 
 namespace TasteCrafters.ViewModels
 {
     public class PickerViewModel : INotifyPropertyChanged
