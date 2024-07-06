@@ -11,10 +11,18 @@
   <li><b>Image Display:</b> Each recipe is displayed with an image fetched from the respective link.</li>
 </ul>
 
-<h2>Screenshots</h2>
-<img src="" alt="Home Page">
-<img src="" alt="Recipe List Page">
-<img src="" alt="Saved Recipes Page">
+<h2>Screenshots UWP</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <img src="./HomePageUWP.PNG" width="220" height="320" alt="Home Page UWP">
+    <img src="./RecipeListPageUWP.PNG" width="220" height="320" alt="Recipe List Page UWP">
+    <img src="./SavedRecipePageUWP.PNG" width="220" height="320" alt="Saved Recipes Page UWP">
+    <img src="./AboutPageUWP.PNG" width="220" height="320" alt="About Page UWP">
+</div>
+<h2>Screenshots Android<h2>
+    <img src="./HomePageAndroid.png" width="220" alt="Home Page Android">
+    <img src="./RecipeListPageAndroid.png" width="220" alt="Recipe List Page Android">
+    <img src="./SavedRecipePageAndroid.png" width="220" alt="Saved Recipes Page Android">
+    <img src="./AboutPageAndroid.png" width="220" alt="About Page Android">
 <h2>Technologies Used</h2>
 <ul>
   <li><b>Frontend:</b> Xamarin.Forms</li>
