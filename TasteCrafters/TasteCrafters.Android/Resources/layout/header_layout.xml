@@ -10,7 +10,7 @@
         android:id="@+id/headerTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/cream_ivory"
         android:textSize="22sp"
         android:gravity="center"
         android:fontFamily="sans-serif-medium" />
