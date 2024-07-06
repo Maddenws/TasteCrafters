@@ -17,9 +17,11 @@ namespace TasteCrafters.Services
         {
             List<SearchResultModel> searchResults = new List<SearchResultModel>();
 
-            string query = $"Recipes with {searchString}";
+            string query = $"Recipes with these ingredients, {searchString}";
+
             string baseUrl = "https://www.googleapis.com/customsearch/v1";
             string parameters = $"key={_apiKey}&cx={_searchEngineId}&q={query}&num=10";
+
             string url = $"{baseUrl}?{parameters}";
             
             using (HttpClient client = new HttpClient())
@@ -31,7 +33,7 @@ namespace TasteCrafters.Services
                     JObject json = JObject.Parse(responseBody);
                     JArray items = (JArray)json["items"];
                     
-                    // Clear existing results before adding new ones to prevent duplicates
+                    
                     searchResults.Clear();
 
                     foreach (JToken item in items)
